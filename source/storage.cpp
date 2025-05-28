@@ -1,6 +1,7 @@
 #include "storage.hpp"
 #include <numeric>
 #include <stdexcept>
+#include <algorithm>
 
 void ShapeStorage::addShape(std::unique_ptr<Shape> shape) {
     shapes_.push_back(std::move(shape));
