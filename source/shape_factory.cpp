@@ -1,8 +1,5 @@
 #include "shape_factory.hpp"
-#include "circle.hpp"
-#include "rectangle.hpp"
-#include "triangle.hpp"
-#include "polygon.hpp"
+#include "shapes.hpp"
 #include "point_factory.hpp"
 #include <stdexcept>
 
