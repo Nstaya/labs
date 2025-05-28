@@ -154,8 +154,8 @@ compile_commands.json
 .uic/
 .clangd/
 /*-debug/
+build/*
 /*-release/
-/build*/
 /dist/gdb/*.gz
 /dist/gdb/python/
 /dist/gdb/qtcreator-*/
