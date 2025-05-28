@@ -1,20 +1,21 @@
+QT += core gui
+TARGET = ShapeMS
 TEMPLATE = app
-CONFIG += console c++17
-CONFIG -= app_bundle
-CONFIG -= qt
 
+INCLUDEPATH += include
+DEPENDPATH += include
 
 SOURCES += \
-        source/circle.cpp \
-        source/main.cpp \
-        source/menu.cpp \
-        source/point.cpp \
-        source/point_factory.cpp \
-        source/polygon.cpp \
-        source/rectangle.cpp \
-        source/shape_factory.cpp \
-        source/storage.cpp \
-        source/triangle.cpp
+    source/circle.cpp \
+    source/main.cpp \
+    source/menu.cpp \
+    source/point.cpp \
+    source/point_factory.cpp \
+    source/polygon.cpp \
+    source/rectangle.cpp \
+    source/shape_factory.cpp \
+    source/storage.cpp \
+    source/triangle.cpp
 
 HEADERS += \
     include/circle.hpp \
