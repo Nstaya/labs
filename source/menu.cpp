@@ -5,29 +5,40 @@
 #include <iomanip>
 #include <unordered_map>
 
+#include "menu_commands.hpp"
+
 Menu::Menu(ShapeStorage& storage) : storage_(storage) {
-    commands_ = {
-        {Action::ADD_SHAPE, [this]() { addShape(); }},
-        {Action::SHOW_SHAPES, [this]() { showShapes(); }},
-        {Action::SHOW_PERIMETERS, [this]() { showPerimeters(); }},
-        {Action::SHOW_SUM_OF_PERIMETERS, [this]() { showSumOfPerimeters(); }},
-        {Action::SORT_SHAPES, [this]() { sortShapes(); }},
-        {Action::DELETE_SHAPE_BY_POSITION, [this]() { deleteShapeByPosition(); }},
-        {Action::DELETE_SHAPES_BY_PERIMETER, [this]() { deleteShapesByPerimeter(); }},
-        {Action::EXIT, [this]() { isRunning_ = false; }}
-    };
+    // commands_ = {
+    //     {Action::ADD_SHAPE, [this]() { addShape(); }},
+    //     {Action::SHOW_SHAPES, [this]() { showShapes(); }},
+    //     {Action::SHOW_PERIMETERS, [this]() { showPerimeters(); }},
+    //     {Action::SHOW_SUM_OF_PERIMETERS, [this]() { showSumOfPerimeters(); }},
+    //     {Action::SORT_SHAPES, [this]() { sortShapes(); }},
+    //     {Action::DELETE_SHAPE_BY_POSITION, [this]() { deleteShapeByPosition(); }},
+    //     {Action::DELETE_SHAPES_BY_PERIMETER, [this]() { deleteShapesByPerimeter(); }},
+    //     {Action::EXIT, [this]() { isRunning_ = false; }}
+    // };
+
+    this->commands_[Action::ADD_SHAPE] = std::make_shared<AddShapeCommand>("Add shape");
+    // commands_[Action::SHOW_SHAPES] = std::make_shared<ShowShapesCommand>("Show shapes");
+    // And so on
+    
 }
 
 void Menu::showMainMenu() {
-    std::cout << "\nМеню:" << std::endl;
-    std::cout << "1. Добавить фигуру" << std::endl;
-    std::cout << "2. Вывести список фигур" << std::endl;
-    std::cout << "3. Вывести периметры фигур" << std::endl;
-    std::cout << "4. Вывести сумму периметров" << std::endl;
-    std::cout << "5. Отсортировать фигуры по периметру" << std::endl;
-    std::cout << "6. Удалить фигуру по номеру" << std::endl;
-    std::cout << "7. Удалить фигуры с периметром больше заданного" << std::endl;
-    std::cout << "8. Выход" << std::endl;
+    // std::cout << "\nМеню:" << std::endl;
+    // std::cout << "1. Добавить фигуру" << std::endl;
+    // std::cout << "2. Вывести список фигур" << std::endl;
+    // std::cout << "3. Вывести периметры фигур" << std::endl;
+    // std::cout << "4. Вывести сумму периметров" << std::endl;
+    // std::cout << "5. Отсортировать фигуры по периметру" << std::endl;
+    // std::cout << "6. Удалить фигуру по номеру" << std::endl;
+    // std::cout << "7. Удалить фигуры с периметром больше заданного" << std::endl;
+    // std::cout << "8. Выход" << std::endl;
+
+    for (auto &cmd : this->commands_) {
+        std::cout << int(cmd.first) << ". " << cmd.second->get_description() << std::endl;
+    }
 }
 
 void Menu::showShapeTypes() {
@@ -40,13 +51,10 @@ void Menu::showShapeTypes() {
 
 void Menu::execute(Action action) {
     try {
-        auto it = commands_.find(action);
-        if (it != commands_.end()) {
-            it->second();
-        }
+        commands_.at(action)->execute(storage_);
     }
-    catch (const std::exception& e) {
-        std::cerr << "\nОшибка: " << e.what() << std::endl;
+    catch (const std::out_of_range&) {
+        //
     }
 }
 

@@ -7,6 +7,8 @@
 #include <functional>
 #include <vector>
 
+#include "menu_commands.hpp"
+
 enum class Action {
     ADD_SHAPE = 1,
     SHOW_SHAPES,
@@ -22,7 +24,7 @@ class Menu {
 public:
     explicit Menu(ShapeStorage& storage);
 
-    static void showMainMenu();
+    void showMainMenu();
     static void showShapeTypes();
 
     void execute(Action action);
@@ -38,9 +40,12 @@ private:
     void deleteShapeByPosition();
     void deleteShapesByPerimeter();
 
+private:
     ShapeStorage& storage_;
     bool isRunning_ = true;
-    std::unordered_map<Action, std::function<void()>> commands_;
+    // std::unordered_map<Action, std::function<void()>> commands_;
+
+    std::unordered_map<Action, menu_command_ptr> commands_;
 };
 
 #endif // MENU_H

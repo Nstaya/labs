@@ -15,7 +15,8 @@ SOURCES += \
     source/rectangle.cpp \
     source/shape_factory.cpp \
     source/storage.cpp \
-    source/triangle.cpp
+    source/triangle.cpp \
+    source/menu_commands.cpp
 
 HEADERS += \
     include/circle.hpp \
@@ -28,4 +29,5 @@ HEADERS += \
     include/shape_factory.hpp \
     include/storage.hpp \
     include/triangle.hpp \
-    include/shapes.hpp
+    include/shapes.hpp \
+    include/menu_commands.hpp
