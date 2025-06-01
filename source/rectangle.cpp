@@ -14,7 +14,7 @@ Rectangle::Rectangle(const std::string& name, double x1, double y1, double x2, d
 
 void Rectangle::validate() const {
     if (leftTopX == rightBottomX || leftTopY == rightBottomY) {
-        throw std::invalid_argument("\nПрямоугольник не может быть вырожденным");
+        throw std::invalid_argument("Прямоугольник не может быть вырожденным");
     }
 }
 

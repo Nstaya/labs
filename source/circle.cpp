@@ -10,7 +10,7 @@ Circle::Circle(const std::string &name, const Point &center, double radius) :
 
 void Circle::validate() const {
     if (radius_ <= 0)
-        throw std::invalid_argument("\nРадиус должен быть положительным");
+        throw std::invalid_argument("Радиус должен быть положительным");
 }
 
 double Circle::perimeter() const {

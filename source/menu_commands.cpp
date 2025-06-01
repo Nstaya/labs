@@ -15,13 +15,13 @@ const std::string MenuCommand::get_description() const {
 AddShapeCommand::AddShapeCommand(const std::string& description):MenuCommand(description) {}
 
 void AddShapeCommand::execute(ShapeStorage &storage) {
-    std::cout << "\nВыберите тип фигуры: ";
+    std::cout << "Выберите тип фигуры: ";
 
     std::string input;
     std::getline(std::cin, input);
 
     if (input.empty()) {
-        std::cout << "\nОшибка: введите число от 1 до 4" << std::endl;
+        std::cout << "Ошибка: введите число от 1 до 4" << std::endl;
         return;
     }
     try {
@@ -35,16 +35,16 @@ void AddShapeCommand::execute(ShapeStorage &storage) {
 
         auto it = typeMap.find(typeChoice);
         if (it == typeMap.end()) {
-            std::cout << "\nОшибка: введите число от 1 до 4" << std::endl;
+            std::cout << "Ошибка: введите число от 1 до 4" << std::endl;
             return;
         }
         const std::string& type = it->second;
 
-        std::cout << "\nВведите название фигуры: ";
+        std::cout << "Введите название фигуры: ";
         std::string name;
         std::getline(std::cin, name);
 
-        std::cout << "\nВведите параметры фигуры через пробел: ";
+        std::cout << "Введите параметры фигуры через пробел: ";
         std::string line;
         std::getline(std::cin, line);
         std::istringstream iss(line);
@@ -58,12 +58,12 @@ void AddShapeCommand::execute(ShapeStorage &storage) {
         try {
             auto shape = ShapeFactory::instance().create(type, name, params);
             storage.addShape(std::move(shape));
-            std::cout << "\nФигура успешно добавлена\n";
+            std::cout << "Фигура успешно добавлена" << std::endl;
         } catch (const std::exception& e) {
-            std::cout << "\nОшибка при создании фигуры: " << e.what() << "\n";
+            std::cout << "Ошибка при создании фигуры: " << e.what() << std::endl;
         }
     } catch (...) {
-        std::cout << "\nОшибка: введите число от 1 до 4\n";
+        std::cout << "Ошибка: введите число от 1 до 4" << std::endl;
     }
 }
 
@@ -72,13 +72,13 @@ ShowShapesCommand::ShowShapesCommand(const std::string& description):MenuCommand
 void ShowShapesCommand::execute(ShapeStorage& storage) {
     const auto& shapes = storage.getShapes();
     if (shapes.empty()) {
-        std::cout << "Коллекция фигур пуста\n";
+        std::cout << "Коллекция фигур пуста" << std::endl;
         return;
     }
 
-    std::cout << "\nСписок фигур:\n";
+    std::cout << "Список фигур:" << std::endl;
     for (size_t i = 0; i < shapes.size(); ++i) {
-        std::cout << i+1 << ". " << shapes[i]->parameters() << "\n";
+        std::cout << i+1 << ". " << shapes[i]->parameters() << std::endl;
     }
 }
 
@@ -88,14 +88,14 @@ ShowPerimetersCommand::ShowPerimetersCommand(const std::string& description)
 void ShowPerimetersCommand::execute(ShapeStorage& storage) {
     const auto& shapes = storage.getShapes();
     if (shapes.empty()) {
-        std::cout << "Коллекция фигур пуста\n";
+        std::cout << "Коллекция фигур пуста" << std::endl;
         return;
     }
 
-    std::cout << "\nПериметры фигур:\n";
+    std::cout << "Периметры фигур:" << std::endl;
     for (size_t i = 0; i < shapes.size(); ++i) {
         std::cout << i+1 << ". " << shapes[i]->type() << " '" << shapes[i]->name
-                  << "': " << shapes[i]->perimeter() << "\n";
+                  << "': " << shapes[i]->perimeter() << std::endl;
     }
 }
 
@@ -103,7 +103,7 @@ ShowSumOfPerimetersCommand::ShowSumOfPerimetersCommand(const std::string& descri
     : MenuCommand(description) {}
 
 void ShowSumOfPerimetersCommand::execute(ShapeStorage& storage) {
-    std::cout << "\nСумма периметров: " << storage.getTotalPerimeter() << "\n";
+    std::cout << "Сумма периметров: " << storage.getTotalPerimeter() << std::endl;
 }
 
 SortShapesCommand::SortShapesCommand(const std::string& description)
@@ -111,7 +111,7 @@ SortShapesCommand::SortShapesCommand(const std::string& description)
 
 void SortShapesCommand::execute(ShapeStorage& storage) {
     storage.sortByPerimeter();
-    std::cout << "Фигуры отсортированы по периметру\n";
+    std::cout << "Фигуры отсортированы по периметру" << std::endl;
 }
 
 DeleteShapeByPositionCommand::DeleteShapeByPositionCommand(const std::string& description)
@@ -119,7 +119,7 @@ DeleteShapeByPositionCommand::DeleteShapeByPositionCommand(const std::string& de
 
 void DeleteShapeByPositionCommand::execute(ShapeStorage& storage) {
     if (storage.count() == 0) {
-        std::cout << "Коллекция фигур пуста\n";
+        std::cout << "Коллекция фигур пуста" << std::endl;
         return;
     }
 
@@ -130,14 +130,14 @@ void DeleteShapeByPositionCommand::execute(ShapeStorage& storage) {
     try {
         size_t index = std::stoul(input);
         if (index < 1 || index > storage.count()) {
-            std::cout << "Неверный номер\n";
+            std::cout << "Неверный номер" << std::endl;
             return;
         }
         storage.removeShape(index - 1);
-        std::cout << "Фигура удалена\n";
+        std::cout << "Фигура удалена" << std::endl;
     }
     catch (...) {
-        std::cout << "Ошибка при удалении\n";
+        std::cout << "Ошибка при удалении" << std::endl;
     }
 }
 
@@ -146,7 +146,7 @@ DeleteShapesByPerimeterCommand::DeleteShapesByPerimeterCommand(const std::string
 
 void DeleteShapesByPerimeterCommand::execute(ShapeStorage& storage) {
     if (storage.count() == 0) {
-        std::cout << "Коллекция фигур пуста\n";
+        std::cout << "Коллекция фигур пуста" << std::endl;
         return;
     }
 
@@ -161,10 +161,10 @@ void DeleteShapesByPerimeterCommand::execute(ShapeStorage& storage) {
             return shape.perimeter() > max_perimeter;
         });
         size_t removed = before - storage.count();
-        std::cout << "Удалено фигур: " << removed << "\n";
+        std::cout << "Удалено фигур: " << removed << std::endl;
     }
     catch (...) {
-        std::cout << "Ошибка при удалении\n";
+        std::cout << "Ошибка при удалении" << std::endl;
     }
 }
 

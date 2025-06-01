@@ -12,11 +12,11 @@ Polygon::Polygon(const std::string &name, const std::vector<double>& coords) :
 
 void Polygon::validate() const {
     if (vertices.size() < 6 || vertices.size() % 2 != 0) {
-        throw std::invalid_argument("\nМногоугольник должен иметь как минимум 3 вершины");
+        throw std::invalid_argument("Многоугольник должен иметь как минимум 3 вершины");
     }
 
     if (!isConvex()) {
-        throw std::invalid_argument("\nМногоугольник не является выпуклым");
+        throw std::invalid_argument("Многоугольник не является выпуклым");
     }
 }
 

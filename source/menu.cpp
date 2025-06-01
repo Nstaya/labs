@@ -14,10 +14,9 @@ Menu::Menu(ShapeStorage& storage) : storage_(storage) {
 }
 
 void Menu::show_menu() const {
-    std::cout << "\nМеню:\n";
+    std::cout << "Меню:\n";
     for (const auto& [action, cmd] : commands_) {
-        std::cout << static_cast<int>(action) << ". "
-                  << cmd->get_description() << "\n";
+        std::cout << static_cast<int>(action) << ". " << cmd->get_description() << std::endl;
     }
 }
 
@@ -26,33 +25,29 @@ void Menu::execute(Action action) {
         commands_.at(action)->execute(storage_);
     }
     catch (const std::out_of_range&) {
-        std::cout << "Неизвестная команда\n";
+        std::cout << "Неизвестная команда" << std::endl;
     }
 }
 
 void Menu::run() {
     while (isRunning()) {
         show_menu();
-        std::cout << "\nВыберите действие: ";
+        std::cout << "Выберите действие: ";
 
         std::string input;
         std::getline(std::cin, input);
-
-        if (input.empty()) {
-            continue;
-        }
 
         try {
             int choice = std::stoi(input);
             if (choice >= 1 && choice <= 8) {
                 execute(static_cast<Action>(choice));
             } else {
-                std::cout << "\nОшибка: введите число от 1 до 8" << std::endl;
+                std::cout << "Ошибка: введите число от 1 до 8" << std::endl;
             }
         } catch (const std::invalid_argument&) {
-            std::cout << "\nОшибка: введите число от 1 до 8" << std::endl;
+            std::cout << "Ошибка: введите число от 1 до 8" << std::endl;
         } catch (const std::out_of_range&) {
-            std::cout << "\nОшибка: число слишком большое" << std::endl;
+            std::cout << "Ошибка: число слишком большое" << std::endl;
         }
     }
 }
