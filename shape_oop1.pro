@@ -7,17 +7,17 @@ INCLUDEPATH += \
     include/
 
 SOURCES += \
-    sourse/circle.cpp \
-    sourse/main.cpp \
-    sourse/menu.cpp \
-    sourse/menu_commands.cpp \
-    sourse/point.cpp \
-    sourse/point_factory.cpp \
-    sourse/polygon.cpp \
-    sourse/rectangle.cpp \
-    sourse/shape_factory.cpp \
-    sourse/storage.cpp \
-    sourse/triangle.cpp
+    source/circle.cpp \
+    source/main.cpp \
+    source/menu.cpp \
+    source/menu_commands.cpp \
+    source/point.cpp \
+    source/point_factory.cpp \
+    source/polygon.cpp \
+    source/rectangle.cpp \
+    source/shape_factory.cpp \
+    source/storage.cpp \
+    source/triangle.cpp
 
 HEADERS += \
     include/circle.hpp \

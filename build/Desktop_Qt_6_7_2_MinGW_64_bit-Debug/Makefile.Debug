@@ -50,17 +50,17 @@ OBJECTS_DIR   = debug
 
 ####### Files
 
-SOURCES       = ..\..\sourse\circle.cpp \
-		..\..\sourse\main.cpp \
-		..\..\sourse\menu.cpp \
-		..\..\sourse\menu_commands.cpp \
-		..\..\sourse\point.cpp \
-		..\..\sourse\point_factory.cpp \
-		..\..\sourse\polygon.cpp \
-		..\..\sourse\rectangle.cpp \
-		..\..\sourse\shape_factory.cpp \
-		..\..\sourse\storage.cpp \
-		..\..\sourse\triangle.cpp 
+SOURCES       = ..\..\source\circle.cpp \
+		..\..\source\main.cpp \
+		..\..\source\menu.cpp \
+		..\..\source\menu_commands.cpp \
+		..\..\source\point.cpp \
+		..\..\source\point_factory.cpp \
+		..\..\source\polygon.cpp \
+		..\..\source\rectangle.cpp \
+		..\..\source\shape_factory.cpp \
+		..\..\source\storage.cpp \
+		..\..\source\triangle.cpp 
 OBJECTS       = debug/circle.o \
 		debug/main.o \
 		debug/menu.o \
@@ -84,17 +84,17 @@ DIST          =  include/circle.hpp \
 		include/shape_factory.hpp \
 		include/shapes.hpp \
 		include/storage.hpp \
-		include/triangle.hpp ..\..\sourse\circle.cpp \
-		..\..\sourse\main.cpp \
-		..\..\sourse\menu.cpp \
-		..\..\sourse\menu_commands.cpp \
-		..\..\sourse\point.cpp \
-		..\..\sourse\point_factory.cpp \
-		..\..\sourse\polygon.cpp \
-		..\..\sourse\rectangle.cpp \
-		..\..\sourse\shape_factory.cpp \
-		..\..\sourse\storage.cpp \
-		..\..\sourse\triangle.cpp
+		include/triangle.hpp ..\..\source\circle.cpp \
+		..\..\source\main.cpp \
+		..\..\source\menu.cpp \
+		..\..\source\menu_commands.cpp \
+		..\..\source\point.cpp \
+		..\..\source\point_factory.cpp \
+		..\..\source\polygon.cpp \
+		..\..\source\rectangle.cpp \
+		..\..\source\shape_factory.cpp \
+		..\..\source\storage.cpp \
+		..\..\source\triangle.cpp
 QMAKE_TARGET  = shape_oop1
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = shape_oop1.exe
@@ -142,52 +142,52 @@ compiler_clean:
 
 ####### Compile
 
-debug/circle.o: ../../sourse/circle.cpp ../../include/circle.hpp \
+debug/circle.o: ../../source/circle.cpp ../../include/circle.hpp \
 		../../include/shape.hpp \
 		../../include/point.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\circle.o ..\..\sourse\circle.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\circle.o ..\..\source\circle.cpp
 
-debug/main.o: ../../sourse/main.cpp ../../include/menu.hpp \
+debug/main.o: ../../source/main.cpp ../../include/menu.hpp \
 		../../include/shape_factory.hpp \
 		../../include/shape.hpp \
 		../../include/point.hpp \
 		../../include/menu_commands.hpp \
 		../../include/storage.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\sourse\main.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\source\main.cpp
 
-debug/menu.o: ../../sourse/menu.cpp ../../include/menu.hpp \
+debug/menu.o: ../../source/menu.cpp ../../include/menu.hpp \
 		../../include/shape_factory.hpp \
 		../../include/shape.hpp \
 		../../include/point.hpp \
 		../../include/menu_commands.hpp \
 		../../include/storage.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\menu.o ..\..\sourse\menu.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\menu.o ..\..\source\menu.cpp
 
-debug/menu_commands.o: ../../sourse/menu_commands.cpp ../../include/menu_commands.hpp \
+debug/menu_commands.o: ../../source/menu_commands.cpp ../../include/menu_commands.hpp \
 		../../include/storage.hpp \
 		../../include/shape.hpp \
 		../../include/point.hpp \
 		../../include/shape_factory.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\menu_commands.o ..\..\sourse\menu_commands.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\menu_commands.o ..\..\source\menu_commands.cpp
 
-debug/point.o: ../../sourse/point.cpp ../../include/point.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\point.o ..\..\sourse\point.cpp
+debug/point.o: ../../source/point.cpp ../../include/point.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\point.o ..\..\source\point.cpp
 
-debug/point_factory.o: ../../sourse/point_factory.cpp ../../include/point_factory.hpp \
+debug/point_factory.o: ../../source/point_factory.cpp ../../include/point_factory.hpp \
 		../../include/point.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\point_factory.o ..\..\sourse\point_factory.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\point_factory.o ..\..\source\point_factory.cpp
 
-debug/polygon.o: ../../sourse/polygon.cpp ../../include/polygon.hpp \
+debug/polygon.o: ../../source/polygon.cpp ../../include/polygon.hpp \
 		../../include/shape.hpp \
 		../../include/point.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\polygon.o ..\..\sourse\polygon.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\polygon.o ..\..\source\polygon.cpp
 
-debug/rectangle.o: ../../sourse/rectangle.cpp ../../include/rectangle.hpp \
+debug/rectangle.o: ../../source/rectangle.cpp ../../include/rectangle.hpp \
 		../../include/shape.hpp \
 		../../include/point.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\rectangle.o ..\..\sourse\rectangle.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\rectangle.o ..\..\source\rectangle.cpp
 
-debug/shape_factory.o: ../../sourse/shape_factory.cpp ../../include/shape_factory.hpp \
+debug/shape_factory.o: ../../source/shape_factory.cpp ../../include/shape_factory.hpp \
 		../../include/shape.hpp \
 		../../include/point.hpp \
 		../../include/shapes.hpp \
@@ -196,17 +196,17 @@ debug/shape_factory.o: ../../sourse/shape_factory.cpp ../../include/shape_factor
 		../../include/rectangle.hpp \
 		../../include/triangle.hpp \
 		../../include/point_factory.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\shape_factory.o ..\..\sourse\shape_factory.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\shape_factory.o ..\..\source\shape_factory.cpp
 
-debug/storage.o: ../../sourse/storage.cpp ../../include/storage.hpp \
+debug/storage.o: ../../source/storage.cpp ../../include/storage.hpp \
 		../../include/shape.hpp \
 		../../include/point.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\storage.o ..\..\sourse\storage.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\storage.o ..\..\source\storage.cpp
 
-debug/triangle.o: ../../sourse/triangle.cpp ../../include/triangle.hpp \
+debug/triangle.o: ../../source/triangle.cpp ../../include/triangle.hpp \
 		../../include/shape.hpp \
 		../../include/point.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\triangle.o ..\..\sourse\triangle.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\triangle.o ..\..\source\triangle.cpp
 
 ####### Install
 
