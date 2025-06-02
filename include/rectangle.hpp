@@ -10,10 +10,10 @@ public:
     double perimeter() const override;
     std::string parameters() const override;
     std::string type() const override;
+    void validate() const override;
 
 private:
     double leftTopX, leftTopY, rightBottomX, rightBottomY;
-    void validate() const;
 };
 
 #endif // RECTANGLE_H

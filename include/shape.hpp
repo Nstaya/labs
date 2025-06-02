@@ -12,6 +12,7 @@ public:
     virtual double perimeter() const = 0;
     virtual std::string parameters() const = 0;
     virtual std::string type() const = 0;
+    virtual void validate() const = 0;
 
     std::string name;
 };

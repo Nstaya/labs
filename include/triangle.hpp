@@ -11,11 +11,12 @@ public:
     double perimeter() const override;
     std::string parameters() const override;
     std::string type() const override;
+    void validate() const override;
 
 private:
     std::array<double, 3> x;
     std::array<double, 3> y;
-    void validate() const;
+    //void validate() const;
 };
 
 #endif // TRIANGLE_H

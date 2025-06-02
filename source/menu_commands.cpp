@@ -26,19 +26,19 @@ void AddShapeCommand::execute(ShapeStorage &storage) {
     }
     try {
         int typeChoice = std::stoi(input);
-        static const std::unordered_map<int, std::string> typeMap = {
-            {1, "circle"},
-            {2, "rectangle"},
-            {3, "triangle"},
-            {4, "polygon"}
+        static const std::string shapeTypes[] = {
+            "circle",
+            "rectangle",
+            "triangle",
+            "polygon",
         };
 
-        auto it = typeMap.find(typeChoice);
-        if (it == typeMap.end()) {
+        if ((typeChoice < 1) || (typeChoice > 4)) {
             std::cout << "Ошибка: введите число от 1 до 4" << std::endl;
             return;
         }
-        const std::string& type = it->second;
+
+        const std::string& type = shapeTypes[typeChoice - 1];
 
         std::cout << "Введите название фигуры: ";
         std::string name;

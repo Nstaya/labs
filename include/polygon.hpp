@@ -10,10 +10,10 @@ public:
     double perimeter() const override;
     std::string parameters() const override;
     std::string type() const override;
+    void validate() const override;
 
 private:
     std::vector<double> vertices;
-    void validate() const;
     bool isConvex() const;
 };
 

@@ -12,11 +12,11 @@ public:
     double perimeter() const override;
     std::string parameters() const override;
     std::string type() const override;
+    void validate() const override;
 
 private:
     Point center_;
     double radius_;
-    void validate() const;
 };
 
 #endif // CIRCLE_H
