@@ -1,1 +1,0 @@
-# Shape management system
