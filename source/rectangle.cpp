@@ -26,7 +26,7 @@ double Rectangle::perimeter() const {
 
 std::string Rectangle::parameters() const {
     std::ostringstream oss;
-    oss << "Прямоугольник '" << name << "': Левый верхний (" << leftTopX << ", " << leftTopY
+    oss << "Прямоугольник '" << get_name() << "': Левый верхний (" << leftTopX << ", " << leftTopY
         << "), Правый нижний (" << rightBottomX << ", " << rightBottomY << ")";
     return oss.str();
 }

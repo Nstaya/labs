@@ -17,7 +17,8 @@ SOURCES += \
     source/rectangle.cpp \
     source/shape_factory.cpp \
     source/storage.cpp \
-    source/triangle.cpp
+    source/triangle.cpp \
+    source/shape.cpp
 
 HEADERS += \
     include/circle.hpp \

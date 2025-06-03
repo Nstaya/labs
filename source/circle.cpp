@@ -19,7 +19,7 @@ double Circle::perimeter() const {
 
 std::string Circle::parameters() const {
     std::ostringstream oss;
-    oss << "Круг '" << name << "': Центр ("<< center_.to_string() << "), Радиус " << radius_;
+    oss << "Круг '" << get_name() << "': Центр ("<< center_.to_string() << "), Радиус " << radius_;
     return oss.str();
 }
 

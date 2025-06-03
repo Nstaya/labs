@@ -25,7 +25,7 @@ double Triangle::perimeter() const {
 
 std::string Triangle::parameters() const {
     std::ostringstream oss;
-    oss << "Треугольник '" << name << "': Вершины (" << x[0] << ", " << y[0] << "), ("
+    oss << "Треугольник '" << get_name() << "': Вершины (" << x[0] << ", " << y[0] << "), ("
         << x[1] << ", " << y[1] << "), (" << x[2] << ", " << y[2] << ")";
     return oss.str();
 }

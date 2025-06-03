@@ -1,10 +1,11 @@
 #include "menu_commands.hpp"
 #include "shape_factory.hpp"
 #include <iostream>
-#include <string>
+#include <vector>
 #include <sstream>
 #include <iomanip>
 #include <unordered_map>
+#include <string>
 
 MenuCommand::MenuCommand(const std::string &description) : description_(description) {}
 
@@ -26,7 +27,7 @@ void AddShapeCommand::execute(ShapeStorage &storage) {
     }
     try {
         int typeChoice = std::stoi(input);
-        static const std::string shapeTypes[] = {
+        static const std::vector<std::string> shapeTypes = {
             "circle",
             "rectangle",
             "triangle",
@@ -94,7 +95,7 @@ void ShowPerimetersCommand::execute(ShapeStorage& storage) {
 
     std::cout << "Периметры фигур:" << std::endl;
     for (size_t i = 0; i < shapes.size(); ++i) {
-        std::cout << i+1 << ". " << shapes[i]->type() << " '" << shapes[i]->name
+        std::cout << i+1 << ". " << shapes[i]->type() << " '" << shapes[i]->get_name()
                   << "': " << shapes[i]->perimeter() << std::endl;
     }
 }

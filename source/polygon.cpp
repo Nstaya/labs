@@ -37,7 +37,7 @@ double Polygon::perimeter() const {
 
 std::string Polygon::parameters() const {
     std::ostringstream oss;
-    oss << "Многоугольник '" << name << "': Вершины ";
+    oss << "Многоугольник '" << get_name() << "': Вершины ";
     for (size_t i = 0; i < vertices.size(); i += 2) {
         oss << "(" << vertices[i] << ", " << vertices[i+1] << ")";
         if (i < vertices.size() - 2) oss << ", ";
